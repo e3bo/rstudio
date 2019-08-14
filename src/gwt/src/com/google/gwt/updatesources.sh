@@ -9,6 +9,7 @@ SRCBASE=`pwd`
 
 # extract over previously modified sources
 jar xvf ${SRCBASE}/../lib/gwt/${GWTVER}/gwt-user.jar \
+  com/google/gwt/user/cellview/client/AbstractCellTableBuilder.java \
   com/google/gwt/user/cellview/client/AbstractHeaderOrFooterBuilder.java \
   com/google/gwt/user/cellview/client/DataGrid.java \
   com/google/gwt/user/client/ui/CellPanel.java \
@@ -29,6 +30,7 @@ jar xvf ${SRCBASE}/../lib/gwt/${GWTVER}/gwt-dev.jar \
 
 # apply previous patches
 cd ${SRCBASE}/com/google/gwt/user/cellview/client
+patch AbstractCellTableBuilder.java < AbstractCellTableBuilder.java.diff
 patch AbstractHeaderOrFooterBuilder.java < AbstractHeaderOrFooterBuilder.java.diff
 patch DataGrid.java < DataGrid.java.diff
 

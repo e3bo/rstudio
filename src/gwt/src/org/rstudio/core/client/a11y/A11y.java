@@ -14,6 +14,7 @@
  */
 package org.rstudio.core.client.a11y;
 
+import com.google.gwt.dom.builder.shared.ElementBuilderBase;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.Widget;
@@ -113,5 +114,30 @@ public class A11y
    public static void setARIAHidden(Element el)
    {
       el.setAttribute("aria-hidden", "true");
+   }
+
+   /**
+    * Mark a DataGrid row
+    */
+   public static void setARIAGridRow(ElementBuilderBase elb)
+   {
+      elb.attribute("role", "row");
+   }
+
+   /**
+    * Mark a DataGrid columnheader
+    */
+   public static void setARIAGridColumnHeader(ElementBuilderBase elb)
+   {
+      elb.attribute("role", "columnheader");
+      elb.attribute("scope", "col");
+   }
+
+   /**
+    * Mark a DataGrid cell
+    */
+   public static void setARIAGridCell(ElementBuilderBase elb)
+   {
+      elb.attribute("role", "gridcell");
    }
 }

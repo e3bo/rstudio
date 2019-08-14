@@ -15,6 +15,7 @@
  */
 package com.google.gwt.user.cellview.client;
 
+import com.google.gwt.aria.client.Roles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
@@ -622,6 +623,7 @@ public class DataGrid<T> extends AbstractCellTable<T> implements RequiresResize 
 
     // Create the body.
     tableData = new TableWidget();
+    Roles.getGridRole().set(tableData.getElement());
     if (tableData.tableElem.getTBodies().getLength() > 0) {
       tableData.section = tableData.tableElem.getTBodies().getItem(0);
     } else {

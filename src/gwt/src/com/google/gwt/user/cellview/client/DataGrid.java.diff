@@ -1,0 +1,4 @@
+17a18
+> import com.google.gwt.aria.client.Roles;
+624a626
+>     Roles.getGridRole().set(tableData.getElement());

@@ -99,11 +99,12 @@ public class BrowseAddinsDialog extends ModalDialog<Command>
          }
       };
       
-      table_ = new RStudioDataGrid<RAddin>(1000, RES, keyProvider_);
+      table_ = new RStudioDataGrid<>(1000, RES, keyProvider_);
+      Roles.getGridRole().setAriaLabelProperty(table_.getElement(), "Installed Addins");
       table_.setWidth("500px");
       table_.setHeight("400px");
       
-      selectionModel_ = new SingleSelectionModel<RAddin>();
+      selectionModel_ = new SingleSelectionModel<>();
       selectionModel_.addSelectionChangeHandler(new SelectionChangeEvent.Handler()
       {
          @Override

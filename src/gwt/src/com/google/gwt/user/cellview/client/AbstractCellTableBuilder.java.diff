@@ -1,0 +1,6 @@
+28a29
+> import org.rstudio.core.client.a11y.A11y;
+197a199
+>     A11y.setARIAGridCell(builder);
+266a269
+>     A11y.setARIAGridRow(row);

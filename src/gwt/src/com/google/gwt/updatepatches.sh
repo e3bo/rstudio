@@ -11,6 +11,7 @@ cd tmp
 TEMPDIR=`pwd`
 
 jar xvf ${SRCBASE}/../lib/gwt/${GWTVER}/gwt-user.jar \
+  com/google/gwt/user/cellview/client/AbstractCellTableBuilder.java \
   com/google/gwt/user/cellview/client/AbstractHeaderOrFooterBuilder.java \
   com/google/gwt/user/cellview/client/DataGrid.java \
   com/google/gwt/user/client/ui/CellPanel.java \
@@ -34,7 +35,9 @@ updatepatch () {
 }
 
 PACKAGE=com/google/gwt/user/cellview/client
+updatepatch ${PACKAGE} AbstractCellTableBuilder.java
 updatepatch ${PACKAGE} AbstractHeaderOrFooterBuilder.java
+updatepatch ${PACKAGE} DataGrid.java
 
 PACKAGE=com/google/gwt/user/client/ui
 updatepatch ${PACKAGE} CellPanel.java
