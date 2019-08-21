@@ -1,5 +1,5 @@
 /*
- * UserStateLayer.hpp
+ * SessionApiPrefs.hpp
  *
  * Copyright (C) 2009-19 by RStudio, Inc.
  *
@@ -13,27 +13,39 @@
  *
  */
 
-#ifndef SESSION_USER_STATE_LAYER_HPP
-#define SESSION_USER_STATE_LAYER_HPP
+#ifndef SESSION_MODULE_API_PREFS_HPP
+#define SESSION_MODULE_API_PREFS_HPP
 
-#include <session/prefs/PrefLayer.hpp>
+#include <session/prefs/Preferences.hpp>
+
+#define kApiPrefsFile "rstudioapi-prefs.json"
+
+namespace rstudio {
+   namespace core {
+      class Error;
+   }
+}
 
 namespace rstudio {
 namespace session {
+namespace modules {
 namespace prefs {
 
-class UserStateLayer: public PrefLayer
+/**
+ * This class represents the preferences set from the RStudio API (rstudioapi package). These
+ * preferences don't have a schema; they are arbitrary key/value pairs defined by rstudioapi package
+ * users. API preferences are stored in a separate file from core IDE preferences. 
+ */
+class ApiPrefs: public session::prefs::Preferences
 {
 public:
-   UserStateLayer();
-   core::Error readPrefs();
-   core::Error writePrefs(const core::json::Object &prefs);
-   core::Error validatePrefs();
-private:
-   core::FilePath prefsFile_;
+   core::Error createLayers();
+   int userLayer();
+   int clientChangedEvent();
 };
 
 } // namespace prefs
+} // namespace modules
 } // namespace session
 } // namespace rstudio
 
