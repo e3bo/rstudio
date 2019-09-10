@@ -515,7 +515,7 @@ int main(int argc, char * const argv[])
       // so we can supports lots of concurrent connectins)
       if (core::system::realUserIsRoot())
       {
-         Error error = setResourceLimit(core::system::FilesLimit, 4096);
+	//Error error = setResourceLimit(core::system::FilesLimit, 4096);
          if (error)
             return core::system::exitFailure(error, ERROR_LOCATION);
       }
